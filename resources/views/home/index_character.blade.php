@@ -30,14 +30,6 @@
     <div class="row">
         <div class="col-12 col-xl-12 stretch-card">
             <div class="row flex-grow-1">
-                @foreach ($testwe as $entry )
-                    <h1>
-                        {{ $entry }}
-                    </h1>
-                @endforeach
-                
-            </div>
-            <div class="row flex-grow-1">
                 <div class="col-md-4 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">

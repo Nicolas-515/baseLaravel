@@ -3,6 +3,7 @@
         <i data-feather="menu"></i>
     </a>
     <div class="navbar-content">
+        <!--
         <form class="search-form">
             <div class="input-group">
                 <div class="input-group-text">
@@ -11,6 +12,7 @@
                 <input type="text" class="form-control" id="navbarForm" placeholder="Search here...">
             </div>
         </form>
+        --->
         <ul class="navbar-nav">
             <!--
             <li class="nav-item dropdown">
@@ -37,6 +39,7 @@
             @if (Route::has('login'))
                 
                 @auth
+                    <!--
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="appsDropdown" role="button"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -235,6 +238,7 @@
                             </div>
                         </div>
                     </li>
+                    -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -253,12 +257,14 @@
                                 </div>
                             </div>
                             <ul class="list-unstyled p-1">
+                                
                                 <li class="dropdown-item py-2">
                                     <a href="pages/general/profile.html" class="text-body ms-0">
                                         <i class="me-2 icon-md" data-feather="user"></i>
                                         <span>Profile</span>
                                     </a>
                                 </li>
+                                <!--
                                 <li class="dropdown-item py-2">
                                     <a href="javascript:;" class="text-body ms-0">
                                         <i class="me-2 icon-md" data-feather="edit"></i>
@@ -271,6 +277,7 @@
                                         <span>Switch User</span>
                                     </a>
                                 </li>
+                                -->
                                 <li class="dropdown-item py-2">
                                     @if(Auth::check() && Auth::user()->role == "admin")
                                     <a href="{{ route('admin.logout') }}" class="text-body ms-0">

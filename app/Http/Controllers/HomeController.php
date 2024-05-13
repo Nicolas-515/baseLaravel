@@ -21,4 +21,18 @@ class HomeController extends Controller
         //return $response;
         return view('home.index_home');
     }
+
+    public function fetchChartacterData(){
+
+        $instanceQuery = '/?page=1';
+
+        $fullUrl = sprintf('%s%s', constant('ramApiEndpoint'), $instanceQuery);
+        $response = Http::get($fullUrl);
+
+        //return $response;
+        return view('home.index_character')
+        ->compact(
+            'testwe'
+        );
+    }
 }

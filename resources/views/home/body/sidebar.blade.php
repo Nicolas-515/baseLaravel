@@ -27,7 +27,7 @@
                 @endif
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{ route('home.index_character') }}" class="nav-link">
                     <i class="link-icon" data-feather="box"></i>
                     <span class="link-title">Personagens</span>
                 </a>

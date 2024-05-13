@@ -278,6 +278,12 @@
                                         <span>Log Out</span>
                                     </a>
                                     @endif
+                                    @if(Auth::check() && Auth::user()->role == "user")
+                                    <a href="{{ route('user.user_logout') }}" class="text-body ms-0">
+                                        <i class="me-2 icon-md" data-feather="log-out"></i>
+                                        <span>Log Out</span>
+                                    </a>
+                                    @endif
                                     
                                 </li>
                             </ul>

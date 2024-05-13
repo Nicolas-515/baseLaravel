@@ -11,44 +11,13 @@
     </div>
     <div class="sidebar-body">
         <ul class="nav">
-            <li class="nav-item nav-category">Principal</li>
+            <li class="nav-item nav-category">Main</li>
             <li class="nav-item">
-                @if(Auth::check() && Auth::user()->role == "admin")
-                <a href="{{ route('admin.dashboard') }}" class="nav-link">
-                    <i class="link-icon" data-feather="box"></i>
-                    <span class="link-title">Dashboard "Admin"</span>
-                </a>
-                @endif
-                @if(Auth::check() && Auth::user()->role == "user")
                 <a href="{{ route('user.user_dashboard') }}" class="nav-link">
                     <i class="link-icon" data-feather="box"></i>
-                    <span class="link-title">Dashboard "User"</span>
-                </a>
-                @endif
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-                    <i class="link-icon" data-feather="box"></i>
-                    <span class="link-title">Personagens</span>
+                    <span class="link-title">Dashboard</span>
                 </a>
             </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-                    <i class="link-icon" data-feather="box"></i>
-                    <span class="link-title">Sobre</span>
-                </a>
-            </li>
-            @if (Route::has('login'))
-            @auth
-            <li class="nav-item nav-category">Minha Area</li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-                    <i class="link-icon" data-feather="box"></i>
-                    <span class="link-title">Meus Personagens</span>
-                </a>
-            </li>
-            @endauth
-            @endif
             <!--
             <li class="nav-item nav-category">web apps</li>
             <li class="nav-item">

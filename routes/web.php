@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,11 +16,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [HomeController::class, 'fetchHomeData']);
+Route::get('/', [HomeController::class, 'fetchHomeData'])->middleware(['auth', 'verified'])->name('home');;
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -28,3 +29,15 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+#Dashboard Routes
+
+Route::middleware(['auth','role:admin'])->group(
+    function(){
+        Route::get('/admin/dashboard', [AdminController::class, 'adminDashboard'])->name('admin.dashboard');
+        Route::get('/admin/logout', [AdminController::class, 'adminLogout'])->name('admin.logout');
+    }
+);
+
+Route::get('/admin/login', [AdminController::class, 'adminLogin'])->name('admin.login');
+

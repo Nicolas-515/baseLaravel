@@ -18,6 +18,7 @@ class HomeController extends Controller
         $fullUrl = sprintf('%s%s', constant('ramApiEndpoint'), $instanceQuery);
         $response = Http::get($fullUrl);
 
-        return $response;
+        //return $response;
+        return view('home.index_home');
     }
 }

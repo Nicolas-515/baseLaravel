@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'fetchHomeData'])->name('home');
-Route::get('/personagens', [HomeController::class, 'fetchChartacterData'])->name('home.index_character');
+Route::get('/personagens', [HomeController::class, 'fetchCharatacterData'])->name('home.index_character');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

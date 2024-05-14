@@ -20,6 +20,7 @@ return new class extends Migration
             $table->timestamp('criado_em')->useCurrent();
             $table->timestamp('atualizado_em')->useCurrent();
             $table->timestamps();
+            $table->foreignId('user_id')->constrained();
         });
     }
 

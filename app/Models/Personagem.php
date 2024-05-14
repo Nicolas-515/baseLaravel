@@ -8,5 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Personagem extends Model
 {
     use HasFactory;
-    protected $guarded = [];
+    protected $fillable = [
+        'name',
+        'species',
+        'image',
+        'url',
+        'criado_em',
+        'atualizado_em',
+    ];
+
+    
 }

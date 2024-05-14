@@ -2,74 +2,63 @@
 @section('home')
 
 <div class="page-content">
-
-
-    <div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
-        <div>
-            <h4 class="mb-3 mb-md-0">Welcome to R&M Laravel</h4>
-        </div>
-        <!--
-        <div class="d-flex align-items-center flex-wrap text-nowrap">
-            <div class="input-group flatpickr wd-200 me-2 mb-2 mb-md-0" id="dashboardDate">
-                <span class="input-group-text input-group-addon bg-transparent border-primary"
-                    data-toggle><i data-feather="calendar" class="text-primary"></i></span>
-                <input type="text" class="form-control bg-transparent border-primary"
-                    placeholder="Select date" data-input>
-            </div>
-            <button type="button" class="btn btn-outline-primary btn-icon-text me-2 mb-2 mb-md-0">
-                <i class="btn-icon-prepend" data-feather="printer"></i>
-                Print
-            </button>
-            <button type="button" class="btn btn-primary btn-icon-text mb-2 mb-md-0">
-                <i class="btn-icon-prepend" data-feather="download-cloud"></i>
-                Download Report
-            </button>
-        </div>
-        -->
-    </div>
     <div class="row">
         <div class="col-12 col-xl-12 stretch-card">
             <div class="row flex-grow-1">
-                @foreach ($testwe as $entry )
-                    <h1>
-                        {{ $entry }}
-                    </h1>
-                @endforeach
-                
-            </div>
-            <div class="row flex-grow-1">
+                @foreach ($characters as $personagem)
                 <div class="col-md-4 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                            <div id={{ $indicators[$loop->iteration] }} class="carousel slide" data-bs-ride="carousel">
                                 <ol class="carousel-indicators">
-                                    <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
-                                    <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></li>
-                                    <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></li>
+                                    <li data-bs-target={{'#' . $indicators[$loop->iteration] }} data-bs-slide-to="0" class="active"></li>
+                                    <li data-bs-target={{'#' . $indicators[$loop->iteration] }} data-bs-slide-to="1"></li>
+                                    <li data-bs-target={{'#' . $indicators[$loop->iteration] }} data-bs-slide-to="2"></li>
                                 </ol>
                                 <div class="carousel-inner">
                                     <div class="carousel-item active">
-                                        <img src="https://via.placeholder.com/35x35" class="d-block w-100" alt="...">
+                                        <img src={{ $personagem[0]['image']}} class="d-block w-100" alt="...">
+                                        <div class="carousel-caption d-none d-md-block">
+                                            <a href="{{ route('home.index_character', ['data-id' => $personagem[0]['id']]) }}" style="background: rgba(0, 0, 0, 0.750)">
+                                                <h5 name="nome">{{ $personagem[0]['name']}}</h5>
+                                                <p>{{$personagem[0]['status']}}, {{$personagem[0]['species']}}, {{$personagem[0]['location']['name']}}</p>
+                                            </a>
+                                        </div>
                                     </div>
                                     <div class="carousel-item">
-                                        <img src="https://via.placeholder.com/35x35" class="d-block w-100" alt="...">
+                                        <img src={{ $personagem[1]['image']}} class="d-block w-100" alt="...">
+                                        <div class="carousel-caption d-none d-md-block">
+                                            <a href="{{ route('home.index_character', ['data-id' => $personagem[1]['id']]) }}" style="background: rgba(0, 0, 0, 0.750)">
+                                                <h5 name="nome">{{ $personagem[1]['name']}}</h5>
+                                                <p>{{$personagem[1]['status']}}, {{$personagem[1]['species']}}, {{$personagem[1]['location']['name']}}</p>
+                                            </a>
+                                        </div>
                                     </div>
                                     <div class="carousel-item">
-                                        <img src="https://via.placeholder.com/35x35" class="d-block w-100" alt="...">
+                                        <img src={{ $personagem[2]['image']}} class="d-block w-100" alt="...">
+                                        <div class="carousel-caption d-none d-md-block">
+                                            <a href="{{ route('home.index_character', ['data-id' => $personagem[2]['id']]) }}" style="background: rgba(0, 0, 0, 0.750)">
+                                                <h5 name="nome">{{ $personagem[2]['name']}}</h5>
+                                                <p>{{$personagem[2]['status']}}, {{$personagem[2]['species']}}, {{$personagem[2]['location']['name']}}</p>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
-                                <a class="carousel-control-prev" data-bs-target="#carouselExampleIndicators" role="button" data-bs-slide="prev">
+                                <a class="carousel-control-prev" data-bs-target={{'#' . $indicators[$loop->iteration] }} role="button" data-bs-slide="prev">
                                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                     <span class="visually-hidden">Previous</span>
                                 </a>
-                                <a class="carousel-control-next" data-bs-target="#carouselExampleIndicators" role="button" data-bs-slide="next">
+                                <a class="carousel-control-next" data-bs-target={{'#' . $indicators[$loop->iteration] }} role="button" data-bs-slide="next">
                                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                     <span class="visually-hidden">Next</span>
                                 </a>
                             </div>
+                            
                         </div>
                     </div>
                 </div>
+                @endforeach
+                <!--
                 <div class="col-md-4 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
@@ -134,6 +123,7 @@
                         </div>
                     </div>
                 </div>
+                -->
             </div>
         </div>
     </div> <!-- row -->

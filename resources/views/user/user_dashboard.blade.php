@@ -72,7 +72,7 @@
     <!-- endinject -->
 
     <!-- Plugin js for this page -->
-    <script src="{{ asset('backend/assets/vendors/flatpickr/flatpickr.min.js') }}."></script>
+    <script src="{{ asset('backend/assets/vendors/flatpickr/flatpickr.min.js') }}"></script>
     <script src="{{ asset('backend/assets/vendors/apexcharts/apexcharts.min.js') }}"></script>
     <!-- End plugin js for this page -->
 

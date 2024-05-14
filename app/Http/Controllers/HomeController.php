@@ -40,6 +40,11 @@ class HomeController extends Controller
         return view('home.index_home', ['characters' => $characters, 'indicators' => $indicators, 'incoming' => null]);
     } //End Method
 
+    public function sobre(Request $request){
+
+        return view('home.index_sobre');
+    }
+
     public function fetchCharatacterData(Request $request){
 
         $character_id = $request->all();

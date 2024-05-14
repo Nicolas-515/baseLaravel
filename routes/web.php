@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'fetchHomeData'])->name('home');
+Route::get('/sobre', [HomeController::class, 'sobre'])->name('sobre');
 Route::get('/personagens', [HomeController::class, 'fetchCharatacterData'])->name('home.index_character');
 Route::any('/personagens/save', [HomeController::class, 'saveCharacterToUser'])->middleware(['auth', 'verified'])->name('home.saveCharacterToUser');
 Route::any('/personagens/mine', [HomeController::class, 'showUserCharacters'])->middleware(['auth', 'verified'])->name('home.showUserCharacters');

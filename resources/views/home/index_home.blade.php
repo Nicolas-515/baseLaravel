@@ -4,6 +4,9 @@
 <div class="page-content">
     <div class="row">
         <div class="col-12 col-xl-12 stretch-card">
+            @if($incoming)
+                <h1>{{ $incoming['name'] }}</h1>
+            @endif
             <div class="row flex-grow-1">
                 @foreach ($characters as $personagem)
                 <div class="col-md-4 grid-margin stretch-card">

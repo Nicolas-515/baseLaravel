@@ -8,7 +8,7 @@
                 <div class="col-md-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <div class="d-flex align-items-start">
+                            <div class="d-flex align-items-start col-md-10">
                                 <img src="{{ $idPersonagem['image'] }}" class="align-self-start wd-100 wd-sm-150 me-3" alt="...">
                                 <div>
                                     <h5 class="mb-2">
@@ -28,6 +28,18 @@
                                         {{ "Url: ". $idPersonagem['url'] }}
                                     </p>
                                 </div>
+                            </div>
+                            <div class="d-flex align-items-start col-md-2 mt-2">
+                                <div>
+                                    <form action="{{ route('home.saveCharacterToUser', ['chara_data' => $idPersonagem ]) }}" method="POST">
+                                        @csrf
+                                        <button  type="submit" class="btn btn-primary">Adicionar</button>
+                                    </form>
+                                    <form action="{{ route('home.deleteCharacterFromUser', ['chara_data' => $idPersonagem ]) }}" method="POST">
+                                        @csrf
+                                        <button type="submit" class="btn btn-danger me-3">Deletar</button>
+                                    </form>
+                                <div>
                             </div>
                         </div>
                     </div>

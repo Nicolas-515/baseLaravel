@@ -47,7 +47,7 @@ class User extends Authenticatable
     
     public function owns()
     {
-        return $this->hasMany(Personagem::class, 'user_id');
+        return $this->hasMany(Characters::class, 'user_id');
     }
     
 

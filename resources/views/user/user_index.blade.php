@@ -8,24 +8,6 @@
         <div>
             <h4 class="mb-3 mb-md-0">Welcome to Dashboard</h4>
         </div>
-        <!--
-        <div class="d-flex align-items-center flex-wrap text-nowrap">
-            <div class="input-group flatpickr wd-200 me-2 mb-2 mb-md-0" id="dashboardDate">
-                <span class="input-group-text input-group-addon bg-transparent border-primary"
-                    data-toggle><i data-feather="calendar" class="text-primary"></i></span>
-                <input type="text" class="form-control bg-transparent border-primary"
-                    placeholder="Select date" data-input>
-            </div>
-            <button type="button" class="btn btn-outline-primary btn-icon-text me-2 mb-2 mb-md-0">
-                <i class="btn-icon-prepend" data-feather="printer"></i>
-                Print
-            </button>
-            <button type="button" class="btn btn-primary btn-icon-text mb-2 mb-md-0">
-                <i class="btn-icon-prepend" data-feather="download-cloud"></i>
-                Download Report
-            </button>
-        </div>
-        -->
     </div>
     <div class="row">
         <div class="col-12 col-xl-12 stretch-card">
@@ -33,32 +15,44 @@
                 <div class="col-md-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                                <ol class="carousel-indicators">
-                                    <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
-                                    <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></li>
-                                    <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></li>
-                                </ol>
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <img src="https://via.placeholder.com/35x35" class="d-block w-100" alt="...">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="https://via.placeholder.com/35x35" class="d-block w-100" alt="...">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="https://via.placeholder.com/35x35" class="d-block w-100" alt="...">
+                            <form action="{{ route('home.saveCharacterToUser', ['auction'=> $idPersonagem]) }}" method="POST">
+                                @csrf
+                                @method('post')
+                                <div class="d-flex align-items-start col-md-10">  
+                                    <img src="{{ $idPersonagem['image'] }}" class="align-self-start wd-100 wd-sm-150 me-3" alt="...">
+                                    <div>
+                                        <h5 class="mb-2">
+                                            {{ $idPersonagem['name'] }}
+                                            <input style="display: none;" value="{{ $idPersonagem['id'] }}" type="text" name="id">
+                                            <input style="display: none;" value="{{ $idPersonagem['name'] }}" type="text" name="name">
+                                            <input style="display: none;" value="{{ $idPersonagem['image'] }}" type="text" name="image">
+                                        </h5>
+                                        <br>
+                                        <p>
+                                            {{ "Espécie: ". $idPersonagem['species'] }}
+                                            <input style="display: none;" value="{{ $idPersonagem['species'] }}" type="text" name="species">
+                                        </p>
+                                        <p>
+                                            {{ "Gênero: ". $idPersonagem['gender'] }}
+                                            <input style="display: none;" value="{{ $idPersonagem['gender'] }}" type="text" name="gender">
+                                        </p>
+                                        <p>
+                                            {{ "Local: ". $idPersonagem['location']['name'] }}
+                                            <input style="display: none;" value="{{ $idPersonagem['location']['name'] }}" type="text" name="location">
+                                        </p>
+                                        <p>
+                                            {{ "Url: ". $idPersonagem['url'] }}
+                                            <input style="display: none;" value="{{ $idPersonagem['url'] }}" type="text" name="url">
+                                        </p>
                                     </div>
                                 </div>
-                                <a class="carousel-control-prev" data-bs-target="#carouselExampleIndicators" role="button" data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </a>
-                                <a class="carousel-control-next" data-bs-target="#carouselExampleIndicators" role="button" data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </a>
-                            </div>
+                                <div class="d-flex align-items-start col-md-2 mt-2">
+                                    <div>
+                                        <button  type="submit" value="Save"  name="status" class="btn btn-primary">Adicionar</button>
+                                        <button type="submit" value="Delete"  name="status" class="btn btn-danger me-3">Deletar</button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>

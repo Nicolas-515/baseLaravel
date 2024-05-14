@@ -19,8 +19,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'fetchHomeData'])->name('home');
 Route::get('/personagens', [HomeController::class, 'fetchCharatacterData'])->name('home.index_character');
-Route::any('/personagens/save', [HomeController::class, 'saveCharacterToUser'])->name('home.saveCharacterToUser');
-Route::any('/personagens/delete', [HomeController::class, 'deleteCharacterFromUser'])->name('home.deleteCharacterFromUser');
+Route::any('/personagens/save', [HomeController::class, 'saveCharacterToUser'])->middleware(['auth', 'verified'])->name('home.saveCharacterToUser');
+Route::any('/personagens/mine', [HomeController::class, 'showUserCharacters'])->middleware(['auth', 'verified'])->name('home.showUserCharacters');
+Route::any('/personagens/mine/{character}/edit', [HomeController::class, 'editCharacterFromUser'])->middleware(['auth', 'verified'])->name('home.editCharacterFromUser');
+Route::any('/personagens/mine/{character}/delete', [HomeController::class, 'deleteCharacterFromUser'])->middleware(['auth', 'verified'])->name('home.deleteCharacterFromUser');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
